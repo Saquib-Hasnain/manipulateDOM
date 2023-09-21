@@ -63,7 +63,19 @@
             // Store the user details in the local storage
             localStorage.setItem(userDetails.name, userDetailsJSON);
             const view = document.getElementById('items')
-            view.innerHTML =view.innerHTML + `<li>Name: ${userDetails.name}-Email: ${userDetails.email}-Password: ${userDetails.pass}</li>`;
+            const childEle =document.createElement('li')
+            childEle.textContent = `Name: ${userDetails.name}-Email: ${userDetails.email}-Password: ${userDetails.pass}`;
+            // Delete Button
+            const deleteButton =document.createElement('input')
+            deleteButton.type='button'
+            deleteButton.value='Delete'
+            deleteButton.onclick = () => {
+              localStorage.removeItem(userDetails.name)
+              view.removeChild(childEle)
+            }
+            childEle.appendChild(deleteButton)
+            view.appendChild(childEle)
+            
 
             // Optional: Reset the form fields after submission
             document.getElementById('exampleInputEmail1').value = '';
