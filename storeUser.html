@@ -63,7 +63,7 @@
             // Store the user details in the local storage
             localStorage.setItem(userDetails.name, userDetailsJSON);
             const view = document.getElementById('items')
-            view.innerHTML =view.innerHTML + `<li>${userDetails.name}-${userDetails.email}-${userDetails.pass}</li>`;
+            view.innerHTML =view.innerHTML + `<li>Name: ${userDetails.name}-Email: ${userDetails.email}-Password: ${userDetails.pass}</li>`;
 
             // Optional: Reset the form fields after submission
             document.getElementById('exampleInputEmail1').value = '';
