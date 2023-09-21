@@ -35,11 +35,10 @@
                 <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
               </div>
               </form>
+              <ul id="items"></ul>
+              
             </div>
-
-
-
-
+            
         <script>
             
             const form = document.getElementById('my-form');
@@ -63,12 +62,15 @@
 
             // Store the user details in the local storage
             localStorage.setItem(userDetails.name, userDetailsJSON);
+            const view = document.getElementById('items')
+            view.innerHTML =view.innerHTML + `<li>${userDetails.name}-${userDetails.email}-${userDetails.pass}</li>`;
 
             // Optional: Reset the form fields after submission
             document.getElementById('exampleInputEmail1').value = '';
             document.getElementById('exampleInputPassword1').value = '';
             document.getElementById('email').value = '';
             });
+            
         </script>
 
     <script
