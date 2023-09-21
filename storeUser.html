@@ -22,9 +22,14 @@
 
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
               </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
@@ -43,11 +48,13 @@
 
             // Retrieve the values from the input fields
             const name = document.getElementById('exampleInputEmail1').value;
+            const email=document.getElementById('email').value;
             const pass = document.getElementById('exampleInputPassword1').value;
 
             // Create an object to store the user details
             const userDetails = {
                 name: name,
+                email: email,
                 pass: pass
             };
 
@@ -55,11 +62,12 @@
             const userDetailsJSON = JSON.stringify(userDetails);
 
             // Store the user details in the local storage
-            localStorage.setItem('userDetails', userDetailsJSON);
+            localStorage.setItem(userDetails.name, userDetailsJSON);
 
             // Optional: Reset the form fields after submission
             document.getElementById('exampleInputEmail1').value = '';
             document.getElementById('exampleInputPassword1').value = '';
+            document.getElementById('email').value = '';
             });
         </script>
 
